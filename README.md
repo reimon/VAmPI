@@ -166,5 +166,4 @@ Inicie o aplicativo Postman em seu computador.
 ## Considerações Finais
 
 Este guia descreve os procedimentos desde a instalação do Docker até testes funcionais da API VAmPI, permitindo avaliar tanto a configuração segura quanto a vulnerável da API. Utilize este ambiente para aprender sobre segurança em APIs e como diferentes configurações podem impactar a segurança e funcionalidade de aplicações web.
-
 Conclua os testes observando o comportamento da API em diferentes configurações e documente quaisquer descobertas ou irregularidades que possam surgir durante os testes.
