@@ -83,7 +83,7 @@ Se você quiser alterar o tempo de expiração do token criado após o login ou 
    - Exemplo de execução do Docker: `docker run -d -e vulnerable=0 -e tokentimetolive=300 -p 5000:5000 erev0s/vampi:latest`
      - Um recurso interessante de executá-la desta maneira é que você pode iniciar um 2º contêiner com `vulnerable=1` em uma porta diferente e alternar facilmente entre os dois.
 
-   - No Dockerfile você encontrará duas variáveis de ambiente sendo definidas, o `ENV vulnerable=1` e o `ENV tokentimetolive=60`. Sinta-se livre para alterá-las antes de executar o comando de construção do docker.
+   - No Dockerfile você encontrará duas variáveis de ambiente sendo definidas, o `ENV vulnerable=1` e o `ENV tokentimetolive=1200`. Sinta-se livre para alterá-las antes de executar o comando de construção do docker.
 
 
  [Imagem de freepik - www.freepik.com](https://www.freepik.com/vectors/party)
