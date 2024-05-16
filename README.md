@@ -140,7 +140,7 @@ Inicie o aplicativo Postman em seu computador.
 ## Importar os Arquivos de Configuração
 
 1. **Clique em Import:**
-  [import](postman/import.png)
+  ![](postman/import.png)
    Abra o explorador de arquivos e navegue até o diretório onde o repositório VAmPI foi clonado.
    Localize a pasta `VAmPI/postman`.
 
