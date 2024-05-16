@@ -1,85 +1,90 @@
+
+
 # VAmPI
-**The Vulnerable API** *(Based on OpenAPI 3)*
+**A API Vulnerável** *(Baseada no OpenAPI 3)*
 ![vampi](https://i.imgur.com/zR0quKf.jpg)
 
 [![Docker Image CI](https://github.com/erev0s/VAmPI/actions/workflows/docker-image.yml/badge.svg)](https://github.com/erev0s/VAmPI/actions/workflows/docker-image.yml) ![Docker Pulls](https://img.shields.io/docker/pulls/erev0s/vampi)
 
 
-VAmPI is a vulnerable API made with Flask and it includes vulnerabilities from the OWASP top 10 vulnerabilities for APIs. It was created as I wanted a vulnerable API to evaluate the efficiency of tools used to detect security issues in APIs. It includes a switch on/off to allow the API to be vulnerable or not while testing. This allows to cover better the cases for false positives/negatives. VAmPI can also be used for learning/teaching purposes. You can find a bit more details about the vulnerabilities in [erev0s.com](https://erev0s.com/blog/vampi-vulnerable-api-security-testing/).
+VAmPI é uma API vulnerável feita com Flask e inclui vulnerabilidades do top 10 da [OWASP](https://owasp.org/www-project-api-security/) para APIs. Foi criada porque eu queria uma API vulnerável para avaliar a eficiência de ferramentas usadas para detectar problemas de segurança em APIs. Inclui um interruptor para tornar a API vulnerável ou não durante os testes. Isso permite cobrir melhor os casos de falsos positivos/negativos. VAmPI também pode ser usada para fins de aprendizado/ensino. Você pode encontrar mais detalhes sobre as vulnerabilidades em [erev0s.com](https://erev0s.com/blog/vampi-vulnerable-api-security-testing/).
 
 
-#### Features
- - Based on OWASP Top 10 vulnerabilities for APIs.
- - OpenAPI3 specs and Postman Collection included.
- - Global switch on/off to have a vulnerable environment or not.
- - Token-Based Authentication (Adjust lifetime from within app.py)
+#### Características
+ - Baseada no top 10 de vulnerabilidades da OWASP para APIs.
+ - Especificações OpenAPI3 e coleção Postman incluídas.
+ - Interruptor global para ter um ambiente vulnerável ou não.
+ - Autenticação baseada em token (Ajuste o tempo de vida dentro de app.py)
 
-VAmPI's flow of actions is going like this: an unregistered user can see minimal information about the dummy users included in the API. A user can register and then login to be allowed using the token received during login to post a book. For a book posted the data accepted are the title and a secret about that book. Each book is unique for every user and only the owner of the book should be allowed to view the secret.
+O fluxo de ações do VAmPI é o seguinte: um usuário não registrado pode ver informações mínimas sobre os usuários fictícios incluídos na API. Um usuário pode se registrar e então fazer login para ser autorizado a usar o token recebido durante o login para postar um livro. Para um livro postado, os dados aceitos são o título e um segredo sobre esse livro. Cada livro é único para cada usuário e apenas o proprietário do livro deve ser permitido ver o segredo.
 
-A quick rundown of the actions included can be seen in the following table:
+Um resumo rápido das ações incluídas pode ser visto na seguinte tabela:
 
-| **Action** |            **Path**           |                     **Details**                    |
-|:----------:|:-----------------------------:|:--------------------------------------------------:|
-|     GET    |           /createdb           | Creates and populates the database with dummy data |
-|     GET    |               /               |                     VAmPI home                     |
-|     GET    |           /users/v1           |      Displays all users with basic information     |
-|     GET    |        /users/v1/_debug       |         Displays all details for all users         |
-|    POST    |       /users/v1/register      |                  Register new user                 |
-|    POST    |        /users/v1/login        |                   Login to VAmPI                   |
-|     GET    |      /users/v1/{username}     |              Displays user by username             |
-|   DELETE   |      /users/v1/{username}     |       Deletes user by username (Only Admins)       |
-|     PUT    |   /users/v1/{username}/email  |             Update a single users email            |
-|     PUT    | /users/v1/{username}/password |                Update users password               |
-|     GET    |           /books/v1           |                 Retrieves all books                |
-|    POST    |           /books/v1           |                    Add new book                    |
-|     GET    |        /books/v1/{book}       |      Retrieves book by title along with secret     |
+| **Ação** |            **Caminho**           |                     **Detalhes**                    |
+|:--------:|:--------------------------------:|:--------------------------------------------------:|
+|     GET    |           /createdb           | Cria e popula o banco de dados com dados fictícios |
+|     GET    |               /               |                     Página inicial do VAmPI                     |
+|     GET    |           /users/v1           |      Exibe todos os usuários com informações básicas     |
+|     GET    |        /users/v1/_debug       |         Exibe todos os detalhes de todos os usuários         |
+|    POST    |       /users/v1/register      |                  Registrar novo usuário                 |
+|    POST    |        /users/v1/login        |                   Login no VAmPI                   |
+|     GET    |      /users/v1/{username}     |              Exibe usuário pelo nome de usuário             |
+|   DELETE   |      /users/v1/{username}     |       Exclui usuário pelo nome de usuário (Apenas Admins)       |
+|     PUT    |   /users/v1/{username}/email  |             Atualiza o email de um único usuário            |
+|     PUT    | /users/v1/{username}/password |                Atualiza a senha do usuário               |
+|     GET    |           /books/v1           |                 Recupera todos os livros                |
+|    POST    |           /books/v1           |                    Adiciona novo livro                    |
+|     GET    |        /books/v1/{book}       |      Recupera livro pelo título junto com o segredo     |
 
-For more details you can use a service like the [swagger editor](https://editor.swagger.io) supplying it the OpenAPI specification which can be found in the directory `openapi_specs`.
-
-
-#### List of Vulnerabilities
- - SQLi Injection
- - Unauthorized Password Change
- - Broken Object Level Authorization
- - Mass Assignment
- - Excessive Data Exposure through debug endpoint
- - User and Password Enumeration
- - RegexDOS (Denial of Service)
- - Lack of Resources & Rate Limiting
+Para mais detalhes, você pode usar um serviço como o [editor swagger](https://editor.swagger.io) fornecendo a especificação OpenAPI que pode ser encontrada no diretório `openapi_specs`.
 
 
+#### Lista de Vulnerabilidades
+ - Injeção de SQL
+ - Mudança de Senha Não Autorizada
+ - Autorização de Objeto Quebrada
+ - Atribuição em Massa
+ - Exposição Excessiva de Dados através do endpoint de debug
+ - Enumeração de Usuários e Senhas
+ - RegexDOS (Negação de Serviço)
+ - Falta de Recursos & Limitação de Taxa
 
- ## Run it
-It is a Flask application so in order to run it you can install all requirements and then run the `app.py`.
-To install all requirements simply run `pip3 install -r requirements.txt` and then `python3 app.py`.
 
-Or if you prefer you can also run it through docker or docker compose.
 
- #### Run it through Docker
+ ## Executar
+É uma aplicação Flask, então para executá-la você pode instalar todos os requisitos e depois rodar o `app.py`.
+Para instalar todos os requisitos basta executar `pip3 install -r requirements.txt` e depois `python3 app.py`.
 
- - Available in [Dockerhub](https://hub.docker.com/r/erev0s/vampi)
+Ou, se preferir, você também pode executá-la através do docker ou docker compose.
+
+ #### Executar através do Docker (Linux / Windows)
+
+ - Disponível em [Dockerhub](https://hub.docker.com/repository/docker/reimon/apivampi/general)
 ~~~~
-docker run -p 5000:5000 erev0s/vampi:latest
+docker run -p 5000:5000 reimon/vampi:1
 ~~~~
+#### Executar através do Docker (MACOS)
+~~~~
+docker run -p 5001:5000 reimon/vampi:1
+~~~~
+[Nota: se você executar o Docker em versões mais recentes do MacOS, use `-p 5001:5000` para evitar conflitos com o serviço AirPlay Receiver. Alternativamente, você poderia desativar o serviço AirPlay Receiver nas suas configurações de Sistema -> Compartilhamento.]
 
-[Note: if you run Docker on newer versions of the MacOS, use `-p 5001:5000` to avoid conflicting with the AirPlay Receiver service. Alternatively, you could disable the AirPlay Receiver service in your System Preferences -> Sharing settings.]
-
-  #### Run it through Docker Compose
-`docker-compose` contains two instances, one instance with the secure configuration on port 5001 and another with insecure on port 5002:
+  #### Executar através do Docker Compose
+`docker-compose` contém duas instâncias, uma instância com a configuração segura na porta 5001 e outra com insegura na porta 5002:
 ~~~~
 docker-compose up -d
 ~~~~
 
-## Customizing token timeout and vulnerable environment or not
-If you would like to alter the timeout of the token created after login or if you want to change the environment **not** to be vulnerable then you can use a few ways depending how you run the application.
+## Personalizando o tempo de expiração do token e ambiente vulnerável ou não
+Se você quiser alterar o tempo de expiração do token criado após o login ou se deseja mudar o ambiente para **não** ser vulnerável, então você pode usar algumas maneiras dependendo de como você executa a aplicação.
 
- - If you run it like normal with `python3 app.py` then all you have to do is edit the `alive` and `vuln` variables defined in the `app.py` itself. The `alive` variable is measured in seconds, so if you put `100`, then the token expires after 100 seconds. The `vuln` variable is like boolean, if you set it to `1` then the application is vulnerable, and if you set it to `0` the application is not vulnerable.
- - If you run it through Docker, then you must either pass environment variables to the `docker run` command or edit the `Dockerfile` and rebuild. 
-   - Docker run example: `docker run -d -e vulnerable=0 -e tokentimetolive=300 -p 5000:5000 erev0s/vampi:latest`
-     - One nice feature to running it this way is you can startup a 2nd container with `vulnerable=1` on a different port and flip easily between the two.
+ - Se você executá-la normalmente com `python3 app.py`, então tudo o que você precisa fazer é editar as variáveis `alive` e `vuln` definidas no próprio `app.py`. A variável `alive` é medida em segundos, então se você colocar `100`, então o token expira após 100 segundos. A variável `vuln` é como booleana, se você definir como `1` então a aplicação é vulnerável, e se definir como `0` a aplicação não é vulnerável.
+ - Se você executá-la através do Docker, então você deve passar variáveis de ambiente para o comando `docker run` ou editar o `Dockerfile` e reconstruir.
+   - Exemplo de execução do Docker: `docker run -d -e vulnerable=0 -e tokentimetolive=300 -p 5000:5000 erev0s/vampi:latest`
+     - Um recurso interessante de executá-la desta maneira é que você pode iniciar um 2º contêiner com `vulnerable=1` em uma porta diferente e alternar facilmente entre os dois.
 
-   - In the Dockerfile you will find two environment variables being set, the `ENV vulnerable=1` and the `ENV tokentimetolive=60`. Feel free to change it before running the docker build command.
+   - No Dockerfile você encontrará duas variáveis de ambiente sendo definidas, o `ENV vulnerable=1` e o `ENV tokentimetolive=60`. Sinta-se livre para alterá-las antes de executar o comando de construção do docker.
 
 
- [Picture from freepik - www.freepik.com](https://www.freepik.com/vectors/party)
+ [Imagem de freepik - www.freepik.com](https://www.freepik.com/vectors/party)
 
