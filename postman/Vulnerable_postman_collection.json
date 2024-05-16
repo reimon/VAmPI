@@ -407,12 +407,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5001/users/v1/register",
+							"raw": "http://localhost:5002/users/v1/register",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "5001",
+							"port": "5002",
 							"path": [
 								"users",
 								"v1",
@@ -449,12 +449,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5001/users/v1/register",
+							"raw": "http://localhost:5002/users/v1/register",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "5001",
+							"port": "5002",
 							"path": [
 								"users",
 								"v1",
@@ -551,12 +551,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5001/users/v1/login",
+							"raw": "http://localhost:5002/users/v1/login",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "5001",
+							"port": "5002",
 							"path": [
 								"users",
 								"v1",
@@ -593,12 +593,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5001/users/v1/login",
+							"raw": "http://localhost:5002/users/v1/login",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "5001",
+							"port": "5002",
 							"path": [
 								"users",
 								"v1",
