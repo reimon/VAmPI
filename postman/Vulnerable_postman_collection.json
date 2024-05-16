@@ -399,7 +399,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"username\": \"test1\",\n  \"password\": \"test1\",\n  \"email\": \"test1@test1.com\"\n}",
+							"raw": "{\n  \"username\": \"pedro\",\n  \"password\": \"pedro\",\n  \"email\": \"pedro@pedro.com\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -441,7 +441,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"username\": \"test1\",\n  \"password\": \"test1\",\n  \"email\": \"test1@test1.com\"\n}",
+							"raw": "{\n  \"username\": \"marcos\",\n  \"password\": \"marcos\",\n  \"email\": \"marcos@marcos.com\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -543,7 +543,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"username\": \"test1\",\n  \"password\": \"test1\"\n}",
+							"raw": "{\n  \"username\": \"pedro\",\n  \"password\": \"pedro\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -585,7 +585,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"username\": \"test1\",\n  \"password\": \"test1\"\n}",
+							"raw": "{\n  \"username\": \"marcos\",\n  \"password\": \"marcos\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
