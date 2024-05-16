@@ -85,6 +85,86 @@ Se você quiser alterar o tempo de expiração do token criado após o login ou 
 
    - No Dockerfile você encontrará duas variáveis de ambiente sendo definidas, o `ENV vulnerable=1` e o `ENV tokentimetolive=1200`. Sinta-se livre para alterá-las antes de executar o comando de construção do docker.
 
-
  [Imagem de freepik - www.freepik.com](https://www.freepik.com/vectors/party)
 
+
+# Instalação e Execução da API VAmPI no Kali Linux (MacBook)
+
+Este guia fornece instruções detalhadas para instalar e executar a API VAmPI em um ambiente Docker no Kali Linux em um MacBook. Este setup inclui a preparação do Docker, clonagem do repositório VAmPI, execução via Docker Compose e teste da API usando o Postman.
+
+## Pré-requisitos
+- Kali Linux instalado em um MacBook (Arquitetura ARM64).
+- Acesso à internet.
+
+## Instalação do Docker
+
+1. **Adicionar o repositório do Docker:**
+  ~~~~
+   echo "deb [arch=arm64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable" | sudo tee /etc/apt/sources.list.d/docker.list
+  ~~~~
+
+2. **Importar a chave GPG do repositório Docker:**
+  ~~~~
+  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  ~~~~
+
+3. **Atualizar o sistema:**
+  ~~~~
+  sudo apt-get update -y
+  ~~~~
+
+4. **Instalar o Docker e componentes relacionados:**
+  ~~~~
+  sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose
+  ~~~~
+
+## Configuração da API VAmPI
+
+1. **Clonar o repositório VAmPI:**
+  ~~~~
+  git clone https://github.com/reimon/VAmPI
+  ~~~~
+2. **Navegar para o diretório do VAmPI:**
+  
+  cd VAmPI
+
+3. **Iniciar a API usando Docker Compose:**
+  ~~~~
+  docker-compose up -d
+  ~~~~
+
+## Abrir o Postman
+
+Inicie o aplicativo Postman em seu computador.
+
+## Importar os Arquivos de Configuração
+
+1. **Clique em Import:**
+  [import](postman/import.jpg)
+   Abra o explorador de arquivos e navegue até o diretório onde o repositório VAmPI foi clonado.
+   Localize a pasta `VAmPI/postman`.
+
+2. **Importar arquivos para o Postman:**
+   Dentro do Postman, clique em `File` > `Import...`.
+   Selecione `Folder` e aponte para a pasta `VAmPI/postman`.
+   Confirme a importação dos arquivos de configuração.
+
+## Realizar os Testes
+
+### Teste da API Segura
+
+- **Acessar a API segura:**
+  Use o Postman para enviar requisições à API configurada na porta 5001.
+  Verifique as respostas para assegurar que a API está respondendo conforme esperado em um ambiente seguro.
+
+### Teste da API Vulnerável
+
+- **Acessar a API vulnerável:**
+  Use o Postman para enviar requisições à API configurada na porta 5002.
+  Explore as possíveis vulnerabilidades e observe as respostas da API em um ambiente configurado para ser inseguro.
+
+## Considerações Finais
+
+Este guia descreve os procedimentos desde a instalação do Docker até testes funcionais da API VAmPI, permitindo avaliar tanto a configuração segura quanto a vulnerável da API. Utilize este ambiente para aprender sobre segurança em APIs e como diferentes configurações podem impactar a segurança e funcionalidade de aplicações web.
+
+Conclua os testes observando o comportamento da API em diferentes configurações e documente quaisquer descobertas ou irregularidades que possam surgir durante os testes.
